@@ -14,6 +14,7 @@ import EarPhone from "./products/earPhone";
 import CheckOut from "./products/checkOut";
 import { useState } from "react";
 import Login from "./login/login";
+import NotFound from "./products/NotFound";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,6 +41,7 @@ function App() {
           <Route path="/greySpeaker" element={<GreySpeaker />} />
           <Route path="/earPhone" element={<EarPhone />} />
           <Route path="/checkOut" element={<CheckOut />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
 

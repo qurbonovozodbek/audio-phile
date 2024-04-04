@@ -1331,3 +1331,14 @@ input {
   transition: all 0.2s ease-in-out;
   background: #FBAF85;
 }
+.loader {
+  margin-top: 200px;
+  margin-left: 500px;
+  margin-bottom: 500px;
+}
+.notFound {
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 740px;
+  border-radius: 8px;
+}

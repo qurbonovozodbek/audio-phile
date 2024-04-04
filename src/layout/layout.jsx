@@ -9,12 +9,14 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../redux/counterReducer";
+import { BounceLoader } from "react-spinners";
 
 function Layout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(1);
+  const [loader, setLoader] = useState(true);
   const cart = useSelector((state) => state.products.value);
   console.log(cart);
 
@@ -22,6 +24,10 @@ function Layout() {
     const updatedCart = [...cart];
     updatedCart[index].count += 1;
   };
+
+  setTimeout(()=> {
+    setLoader(false)
+  },2000)
 
   const handleMinus = (index) => {
     const updatedCart = [...cart];
@@ -110,9 +116,11 @@ function Layout() {
           ) : null}
         </div>
       </header>
-      <main>
+      {
+        loader ? <BounceLoader className="loader" color="#D87D4A" /> : <main>
         <Outlet />
       </main>
+      }
       <footer>
         <div className="footer-left">
           <div className="footer-line"></div>
