@@ -1289,3 +1289,45 @@ input {
   transition: all 0.2s ease-in-out;
   background: #FBAF85;
 }
+.login {
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 440px;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 4px 12px black;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.login form input {
+  width: 100%;
+  font-size: 18px;
+}
+.login h2 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1.14px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.login button {
+  width: 100%;
+  padding: 15px;
+  background: #D87D4A;
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 17.76px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.login button:hover {
+  transition: all 0.2s ease-in-out;
+  background: #FBAF85;
+}

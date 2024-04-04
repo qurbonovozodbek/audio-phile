@@ -1,30 +1,42 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login({ setIsLoggedIn }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('email');
+    const storedPassword = localStorage.getItem('password');
+
+    if (storedEmail && storedPassword) {
+      setEmail(storedEmail);
+      setPassword(storedPassword);
+    }
+  }, []);
 
   function validate() {
     if (email.length === 0 || password.length === 0) {
-      alert("Please enter a valid email and password");
+      alert('Please enter a valid email and password');
       return false;
     }
     return true;
   }
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     if (validate()) {
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+      
       setIsLoggedIn(true);
-      navigate("/");
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      navigate('/');
     }
   };
 
   return (
-    <div>
+    <div className='login'>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
